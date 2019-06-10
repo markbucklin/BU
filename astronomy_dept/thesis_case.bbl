@@ -1,0 +1,13 @@
+\begin{thebibliography}{1}
+\providecommand{\natexlab}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+
+\bibitem[{\textit{{Gosling}}(1993)}]{gosling_1993}
+{Gosling}, J.~T. (1993), {The solar flare myth}, \textit{J. Geophys. Res.},
+  \textit{98}, 18,937--18,950,
+  \href{http://dx.doi.org/10.1029/93JA01896}{\doi{10.1029/93JA01896}}.
+
+\end{thebibliography}

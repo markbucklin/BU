@@ -1,0 +1,171 @@
+% BU ASTRONOMY template for MS thesis and PhD dissertation.
+%
+%==========================================================================%
+% MAIN PREAMBLE 
+%==========================================================================%
+%You may not have all of these packages installed.  If not, you may need to find them.  The files not included should be easily attainable through the usual latex channels.
+\documentclass[12pt,letterpaper]{report}
+\special{papersize=8.5in,11in}
+
+%To skip a line between paragraphs
+%\setlength{\parskip}{10pt plus 1pt minus 1pt}
+
+\usepackage{epsfig, natbib}
+\usepackage{stylefiles/aastex_hack}
+\usepackage{fancyhdr,fancybox}
+\usepackage{stylefiles/bu_astro_thesis}
+%\usepackage{xspace}
+\usepackage{indentfirst} %TO INDENT THE FIRST LINE OF A PARAGRAPH AT THE BEGINNING OF A NEW SECTION
+%\usepackage{sidecap} %FOR CAPTIONS ON THE SIDE OF FIGURES
+\usepackage{ulem} %FOR UNDERLINING AND SUCH
+%\usepackage{url}
+%\usepackage{wrapfig}
+%\usepackage{amssymb}
+\usepackage{longtable}
+%\usepackage{multirow}
+
+%%To get centered columns of a certain width
+\usepackage{array}
+\newcolumntype{x}[1]{%
+>{\centering\hspace{0pt}}p{#1}}%
+
+\bibliographystyle{stylefiles/agu08_bbl_link} %Also available is the 'apj' style (no titles)
+
+
+%TO MAKE SURE MARGINS DON'T GET IGNORED
+\widowpenalty=10000
+\clubpenalty=10000
+\setlength\parindent{2.2 em}
+\raggedbottom
+\tolerance=10000 %line break tolerances
+
+% UNITS
+\newcommand{\m}{$\,{\rm m}$}
+\newcommand{\cm}{$\,{\rm cm}$}
+\newcommand{\K}{\ensuremath{\,{\rm K}}}
+\newcommand{\ks}{${\,{\rm km\, sec^{-1}}}$}
+\newcommand{\msun}{$\,M_{S}$}
+\newcommand{\rsun}{$\,R_{S}$}
+\newcommand{\percc}{\ensuremath{\,{\rm cm^{-3}}}}
+\newcommand{\hr}{$\,{\rm hr}$}
+\newcommand{\kms}{\ensuremath{\,{\rm km\,s}^{-1}}}
+\newcommand{\degper}{\ensuremath{\rlap.{^{\circ}}}}
+\newcommand{\rearth}{R$_{E}$}
+\newcommand{\degrees}{$^{\circ}$}
+
+%%FOR SUB AND SUPERSCRIPTS IN TEXT
+\newcommand{\superscript}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\subscript}[1]{\ensuremath{_{\textrm{#1}}}}
+
+%%TO ALIGN TABLE ROWS THAT ARE UNDER A HORIZONTAL LINE
+\newcommand{\topline}{\rule{0pt}{2.3ex}}
+\newcommand{\bottomline}{\rule[-1.2ex]{0pt}{0pt}}
+
+
+%#############################
+%THIS ONE IS VERY USEFUL!!!!!
+%#############################
+\setkeys{Gin}{draft=False} %if True, all figures will print as just an empty box (useful when you don't want to wait for an entire dissertation with figures to compile)
+%#############################
+%#############################
+
+
+\renewcommand{\topfraction}{0.75}	% max fraction of floats at top
+\renewcommand{\bottomfraction}{0.1}	% max fraction of floats at bottom
+
+%Parameters for TEXT pages (not float pages):
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}     % 2 may work better
+\renewcommand{\textfraction}{0.07}	% allow minimal text w. figs
+%Parameters for FLOAT pages (not text pages):
+\renewcommand{\floatpagefraction}{0.7}	% require fuller float pages
+% N.B.: floatpagefraction MUST be less than topfraction !!
+\renewcommand{\dblfloatpagefraction}{0.7}	% require fuller float pages
+
+%DEFINE WHAT THE BULLETS LOOK LIKE
+\renewcommand{\labelitemi}{\textbullet} %FIRST LEVEL BULLET
+\renewcommand{\labelitemii}{$\circ$} %SECOND LEVEL BULLET
+
+%SO WE CAN USE \href AND \url
+\usepackage[implicit=True,breaklinks=False,linktocpage=True,pdfborder={0 0 1},pdfborderstyle={/S/U/W 1},linkbordercolor={0 0 1},citebordercolor={0 0 1},filebordercolor={0 0 1},menubordercolor={0 0 1},runbordercolor={0 0 1},urlbordercolor={0 0 1},dvips]{hyperref}
+
+%SET MARGINS
+\setlength{\topmargin}{0.0in}
+\setlength{\headheight}{.12in}
+\setlength{\headsep}{0.33in}
+\setlength{\textheight}{8.48in}
+\setlength{\textwidth}{5.96in}
+\setlength{\oddsidemargin}{0.52in}
+\setlength{\evensidemargin}{0.52in}
+\setlength{\footskip}{0.30in}
+
+
+%==========================================================================%
+%==========================================================================%
+% BEGIN
+%==========================================================================%
+\begin{document}
+
+%####################################################
+%Preliminary Stuff
+%####################################################
+\title{YOUR TITLE HERE IN ALL CAPS}
+\author{FIRST M LAST} %YOUR NAME
+\degree=2 %2 = Doctor of Philisophy dissertation.
+\prevdegrees{M.A., Boston University, Boston, MA, YYYY \\ B.S., Your Undergrad University, City, ST, YYYY}
+\department{Department of Astronomy}
+\defenseyear{YYYY}
+\degreeyear{YYYY}
+\reader{First}{First M. Reader, PhD}{Professor of Astronomy\\University of First Reader}
+\reader{Second}{Second M. Reader, PhD}{Professor of Astronomy\\University of Second Reader}
+\reader{Third}{Third M. Reader, PhD}{Title of Third Reader\\University of Third Reader}
+\majorprof{First M. Reader}{\mbox{Professor of Astronomy.}}
+\buecethesistitleboxpage %USUALLY COMMENT THIS LINE OUT
+\maketitle
+\copyrightpage %USUALLY COMMENT BELOW OUT (INCLUSIVE OF THIS LINE)
+\approvalpage
+\newpage
+\chapter*{Acknowledgments}
+\input{extras/acknowledgements}
+\begin{abstractpage}
+\input{extras/abstract}
+\end{abstractpage}  %USUALLY COMMENT ABOVE OUT (INCLUSIVE OF THIS LINE)
+\tableofcontents
+\newpage	
+\listoftables
+\newpage
+\listoffigures
+\input{extras/abbreviations}
+\newpage
+\endofprelim
+
+%####################################################
+%THE REAL CONTENT
+%####################################################
+
+%\setcounter{chapter}{2} %If I was printing off only chapter 3 (for example), then I would comment out the other chapter directly below here and use this line to make the chapter count correct
+
+\include{chapter1/chapter1_case}
+\include{chapter2/chapter2}
+\include{chapter3/chapter3}
+\include{chapter4/chapter4}
+\include{chapter5/chapter5}
+
+\include{extras/journal_abbrev}
+
+% -------------------------------------
+% Bibliography
+% -------------------------------------
+\newpage
+\singlespace
+\bibliography{ExampleBibliography} %Path to your bibliography file.  Could be a path to anywhere on your machine
+
+\newpage  
+\chapter*{Curriculum Vitae} %The way Martha wanted it...CV looks like a chapter heading (though no number)
+\addcontentsline{toc}{chapter}{Curriculum Vitae}
+{\noindent}{\Large Your M. Name} \\ %and then your name a little smaller.
+\newline
+\input{extras/cv_body}
+
+\end{document}

@@ -1,0 +1,224 @@
+% BU ASTRONOMY template for MS thesis and PhD dissertation.
+%
+%==========================================================================%
+% MAIN PREAMBLE 
+%==========================================================================%
+%You may not have all of these packages installed.  If not, you may need to find them.  The files not included should be easily attainable through the usual latex channels.
+\documentclass[12pt,letterpaper]{report}
+\special{papersize=8.5in,11in}
+
+%To skip a line between paragraphs
+%\setlength{\parskip}{10pt plus 1pt minus 1pt}
+
+\usepackage{epsfig, natbib}
+\usepackage{stylefiles/aastex_hack}
+\usepackage{fancyhdr,fancybox}
+\usepackage{stylefiles/bu_astro_thesis}
+\usepackage{indentfirst} %TO INDENT THE FIRST LINE OF A PARAGRAPH AT THE BEGINNING OF A NEW SECTION
+%\usepackage{sidecap} %FOR CAPTIONS ON THE SIDE OF FIGURES
+\usepackage{ulem} %FOR UNDERLINING AND SUCH
+\usepackage{longtable,lscape} %IF YOU HAVE TABLES SPANNING MULTIPLE PAGES, YOU PROBABLY WANT TO USE THIS
+\usepackage{stylefiles/deluxetable} %I HIGHLY RECOMMEND USING DELUXETABLE.  HOWEVER, THERE ARE DEFINITELY
+							%CONFLICTS BETWEEN DELUXETABLE AND THE ARRAY PACKAGE.  SO YOU HAVE
+							%TO CHOOSE IF YOU WANT DELUXETABLE OR ARRAY, BUT YOU CAN'T USE BOTH.
+
+%TO GET CENTERED COLUMNS OF A CERTAIN WIDTH.  DOES NOT PLAY WELL WITH DELUXETABLE
+%\usepackage{array}
+%\newcolumntype{x}[1]{%
+%>{\centering\hspace{0pt}}p{#1}}%
+
+
+%TH	IS DETERMINES THE FORMAT OF THE BIBLIOGRAPHY.  THERE ARE MANY DIFFERENT VERSIONS IN THE
+%STYLEFILES FOLDER, THERE ARE ALSO OTHER VERSIONS AVAILABLE ONLINE AS LATEX .BST FILES.
+%FIND ONE THAT YOU LIKE AND GO WITH THAT.  I RECOMMEND THE RECENT VERSION OF APJ BECAUSE IT
+%IS THE MOST ABBREVIATED VERSION, BUT FEEL FREE TO USE WHATEVER YOU LIKE.
+\bibliographystyle{stylefiles/apj} %THIS IS THE NEW VERSION OF APJ, MORE THAN 5 AUTHORS IS ABBREVIATED TO ET. AL
+
+
+%TO MAKE SURE MARGINS DON'T GET IGNORED
+\widowpenalty=10000
+\clubpenalty=10000
+\setlength\parindent{2.2 em}
+\raggedbottom
+\tolerance=10000 %line break tolerances
+
+% UNITS
+\newcommand{\m}{$\,{\rm m}$}
+\newcommand{\cm}{$\,{\rm cm}$}
+\newcommand{\K}{\ensuremath{\,{\rm K}}}
+\newcommand{\ks}{${\,{\rm km\, sec^{-1}}}$}
+\newcommand{\msun}{$\,M_{S}$}
+\newcommand{\rsun}{$\,R_{S}$}
+\newcommand{\percc}{\ensuremath{\,{\rm cm^{-3}}}}
+\newcommand{\hr}{$\,{\rm hr}$}
+\newcommand{\kms}{\ensuremath{\,{\rm km\,s}^{-1}}}
+\newcommand{\degper}{\ensuremath{\rlap.{^{\circ}}}}
+\newcommand{\rearth}{R$_{E}$}
+\newcommand{\degrees}{$^{\circ}$}
+\newcommand{\SDSS}{{\it SDSS}}
+
+%%FOR SUB AND SUPERSCRIPTS IN TEXT
+\newcommand{\superscript}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\subscript}[1]{\ensuremath{_{\textrm{#1}}}}
+
+%%TO ALIGN TABLE ROWS THAT ARE UNDER A HORIZONTAL LINE
+\newcommand{\topline}{\rule{0pt}{2.3ex}}
+\newcommand{\bottomline}{\rule[-1.2ex]{0pt}{0pt}}
+
+
+%#############################
+%THIS ONE IS VERY USEFUL!!!!!
+%#############################
+\setkeys{Gin}{draft=False} %if True, all figures will print as just an empty box (useful when you don't want to wait for an entire dissertation with figures to compile)
+%#############################
+%#############################
+
+
+\renewcommand{\topfraction}{0.75}	% max fraction of floats at top
+\renewcommand{\bottomfraction}{0.1}	% max fraction of floats at bottom
+
+%Parameters for TEXT pages (not float pages):
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}     % 2 may work better
+\renewcommand{\textfraction}{0.07}	% allow minimal text w. figs
+%Parameters for FLOAT pages (not text pages):
+\renewcommand{\floatpagefraction}{0.7}	% require fuller float pages
+% N.B.: floatpagefraction MUST be less than topfraction !!
+\renewcommand{\dblfloatpagefraction}{0.7}	% require fuller float pages
+
+%DEFINE WHAT THE BULLETS LOOK LIKE
+\renewcommand{\labelitemi}{\textbullet} %FIRST LEVEL BULLET
+\renewcommand{\labelitemii}{$\circ$} %SECOND LEVEL BULLET
+
+%SO WE CAN USE \href AND \url AND HAVE FIGURE REFERENCE TO TOP OF FIGURE
+\usepackage[implicit=True,breaklinks=False,linktocpage=True,pdfborder={0 0 1},pdfborderstyle={/S/U/W 1},linkbordercolor={0 0 1},citebordercolor={0 0 1},filebordercolor={0 0 1},menubordercolor={0 0 1},runbordercolor={0 0 1},urlbordercolor={0 0 1},dvips]{hyperref}
+
+%ALLOWS YOU TO ANCHOR THE CAPTION TO THE TOP OF THE FIGURE, SO THE HYPERLINK BRINGS YOU
+%TO THE FIGURE INSTEAD OF THE CAPTION (THIS ANNOYS THE HELL OUT OF ME).
+\usepackage[figure]{hypcap}
+
+%SET MARGINS
+\setlength{\topmargin}{0.0in}
+\setlength{\headheight}{.12in}
+\setlength{\headsep}{0.33in}
+\setlength{\textheight}{8.48in}
+\setlength{\textwidth}{5.96in}
+\setlength{\oddsidemargin}{0.52in}
+\setlength{\evensidemargin}{0.52in}
+\setlength{\footskip}{0.30in}
+
+%%TO USE THE GLOSSARIES PACKAGE AND COMPILE AN ACRONYM PAGE
+%%NOSUPER HAS TO BE SET OR THERE IS A CONFLICT WITH DELUXETABLE
+%%AND HYPERFIRST=FLASE WILL NOT MAKE A HYPERLINK TO THE LIST OF
+%%ABBREVIATIONS FOR THE FIRST INSTANCE OF AN ACRONYM IN THE TEXT
+%%IF YOU DON'T LIKE THE PAGE NUMBERS DISPLAYED, YOU CAN SET THE
+%%NONUMBERLIST OPTION IN THE CALL TO THE GLOSSARIES PACKAGE
+%%IF THIS IS THE CASE, I WOULD RECOMMEND USING THE LONGCOL STYLE
+%%DOWN IN THE PRINTGLOSSARIES COMMAND.  CHECK OUT THE GLOSSARIES
+%%MANUAL FOR EXAMPLES OF DIFFERENT STYLES AND HOW TO USE THEM
+%%JUST BE ADVISED THAT YOU CAN'T USE ANY OF THE SUPERTABULAR
+%%ENVIRONMENTS.
+\usepackage[acronym,nosuper,hyperfirst=false]{glossaries}
+
+%%THIS PRODUCES AN ACRONYM LIST THAT LOOKS A LOT LIKE THE LIST OF
+%%FIGURES AND TABLES.  CHECK OUT THE GLOSSARIES USER MANUAL FOR
+%%DIFFERENT STYLES.  I DECIDED TO CREATE MY OWN...
+\newglossarystyle{joshlist}{%
+ \glossarystyle{long3col}%
+ \renewenvironment{theglossary}%
+   {\begin{longtable}{p{0.0in}lp{4.7in}}}%
+   {\end{longtable}}%
+  \renewcommand*{\glossaryentryfield}[5]{%
+    & \glsentryitem{##1}\glstarget{##1}{##2} & ##3 \unskip\leaders\hbox to 2.9mm{\hss.}\hfill\strut ##5\\}%
+ \renewcommand*{\glsgroupskip}{}%
+}
+
+%%FOR THE ACRONYM PAGE, DEFINE ALL ACRONYMS HERE
+%%IF YOU ARE USING AN ACRONYM WITHIN AN ACRONYM, AND THIS IS ASTRONOMY, SO WHO ISN'T,
+%%YOU NEED TO USE THE DESCRIPTION KEY FOR THE VERSION OF THE ABBREVIATION YOU WANT
+%%TO APPEAR IN THE LIST, AND THEN HAVE THE GLS CALL WITHIN THE LONG VERSION LABEL
+\newacronym[sort=sdss]{sdss}{\SDSS}{Sloan Digital Sky Survey} %IF YOU HAVE AN ACRONYM THAT USES A SYMBOL, LIKE THIS, YOU WANT IT TO SORT ON THE LETTERS, NOT THE FACT THAT IT IS A SYMBOL.  OTHERWISE THIS WOULD END UP AT THE VERY TOP OF THE ACRONYM LIST
+\newacronym{tla}{TLA}{Three Letter Acronym}
+\newacronym{oah}{OAH}{Other Acronyms Here}
+%THIS IS A PRIME EXAMPLE OF AN ACRONYM WITHIN AN ACRONYM AND HOW TO HANDLE IT
+%JUST MAKE SURE THAT HYPERFIRST=FALSE IS SET IN THE PACKAGE CALL TO GLOSSARIES
+%OTHERWISE THINGS WILL MOST LIKELY GO OFF OF THE EDGE OF THE PAGE...
+\newacronym[description=TLA Within Another Acronym]{twaa}{TWAA}{\gls{tla} Within Another Acronym}
+%YOU CAN EVEN MAKE PLURAL VERSIONS OF EACH ACRONYM, BOTH THE LONG AND SHORT VERSIONS
+%HERE IS AN EXAMPLE OF ONE...
+\newacronym[plural=SNe, firstplural=Supernovae (SNe)]{sn}{SN}{Supernova}
+
+%%CALLS A PERL SCRIPT THAT WILL DO THE DIRTY WORK OF COMPILING THE GLOSSARY
+%%IF YOU HAVE THE GLOSSARIES PACKAGE YOU SHOULD HAVE THIS AS WELL...
+\makeglossaries
+
+%==========================================================================%
+%==========================================================================%
+% BEGIN
+%==========================================================================%
+\begin{document}
+
+%####################################################
+%Preliminary Stuff
+%####################################################
+\title{YOUR TITLE HERE IN ALL CAPS}
+\author{FIRST M LAST} %YOUR NAME
+\degree=2 %2 = Doctor of Philisophy dissertation.
+\prevdegrees{M.A., Boston University, YYYY \\ B.S., Your Undergrad University, YYYY} %THIS IS UPDATED TO WHAT MARTHA WANTED AS OF DECEMBER 2011, SO NO CITY AND STATE FOR THE SCHOOLS YOU HAVE GONE TO.
+\department{Department of Astronomy}
+\defenseyear{YYYY}
+\degreeyear{YYYY}
+%THERE SHOULD BE AT LEAST TWO MORE CARRIAGE RETURNS BETWEEN EACH READER
+\reader{First}{First M. Reader, PhD}{Professor of Astronomy\\University of First Reader\\ \\ \\}
+\reader{Second}{Second M. Reader, PhD}{Professor of Astronomy\\University of Second Reader\\ \\ \\}
+\reader{Third}{Third M. Reader, PhD}{Title of Third Reader\\University of Third Reader}
+\majorprof{First M. Reader}{\mbox{Professor of Astronomy.}}
+\buecethesistitleboxpage %USUALLY COMMENT THIS LINE OUT
+\copyrightpage %USUALLY COMMENT BELOW OUT (INCLUSIVE OF THIS LINE)
+\approvalpage
+\newpage
+\chapter*{Acknowledgments}
+\input{extras/acknowledgements}
+\begin{abstractpage}
+\input{extras/abstract}
+\end{abstractpage}  %USUALLY COMMENT ABOVE OUT (INCLUSIVE OF THIS LINE)
+\tableofcontents
+\newpage	
+\listoftables
+\newpage
+\listoffigures
+\newpage
+\printglossary[type=\acronymtype,title={List of Abbreviations},style=joshlist] %THIS IS WHERE YOU WOULD CHANGE THE GLOSSARY STYLE IF YOU DON'T LIKE THE ONE I MADE.  LONGTABLE SEEMS PRETTY GOOD AS WELL, ESPECIALLY IF YOU DON'T LIKE THE PAGE NUMBERS ATTACHED.
+\newpage
+\endofprelim
+
+%####################################################
+%THE REAL CONTENT
+%####################################################
+
+%\setcounter{chapter}{2} %If I was printing off only chapter 3 (for example), then I would comment out the other chapters directly below here and use this line to make the chapter count correct
+
+\include{chapter1/chapter1_wing}
+\include{chapter2/chapter2}
+\include{chapter3/chapter3}
+\include{chapter4/chapter4}
+\include{chapter5/chapter5}
+
+\include{extras/journal_abbrev}
+
+% -------------------------------------
+% Bibliography
+% -------------------------------------
+\newpage
+\singlespace
+\bibliography{ExampleBibliography} %Path to your bibliography file.  Could be a path to anywhere on your machine
+
+\newpage  
+\chapter*{Curriculum Vitae} %The way Martha wanted it...CV looks like a chapter heading (though no number)
+\addcontentsline{toc}{chapter}{Curriculum Vitae}
+{\noindent}{\Large Your M. Name} \\ %and then your name a little smaller.
+\newline
+\input{extras/cv_body}
+
+\end{document}

@@ -1,0 +1,7 @@
+\begin{thebibliography}{1}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{{Gosling}(1993)}]{gosling_1993}
+{Gosling}, J.~T. 1993, J. Geophys. Res., 98, 18937
+
+\end{thebibliography}
