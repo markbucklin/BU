@@ -8,12 +8,12 @@
 % Adapted from the BU Department of Electrical and Computer Engineering's template that can be found on the Mugar Library website
 % Prepared by Hanna Gerlovin <gerlovin@bu.edu> March 2018 based on earlier versions by Stephen Gildea, Paolo Gaudiano, Janusz Konrad, and Jonathan Polimeni
 
-%% DISCLAIMER: This software is only meant to assist Boston University students in following the guidelines for dissertation format established by the Graduate School. The format is based on the "Guide for writers of theses and dissertations", a Mugar Library publications. Each student is responsible for obtaining a copy of this publication to insure that the format is still valid.
+%% DISCLAIMER: This software is only meant to assist Boston University students in following the guidelines for dissertation format established by the Graduate School. The format is based on the "Guide for writers of theses and dissertations", a Mugar Library publications. Each student is responsible for obtaining a copy of this publication to insure that the format is still valid. 
 
 % Adapted to Boston University standards by Paolo Gaudiano, based on Stephen Gildea's mitthesis.sty (1989). Original Copyright notice follows
 %%% Copyright (c) 1987 by Stephen Gildea
 %%% Permission to copy all or part of this work is granted, provided that the copies are not made or distributed for resale, and that the copyright notice and this notice are retained.
-%%%
+%%% 
 
 % Load the packages to make things nice
 
@@ -33,22 +33,22 @@
 \hypersetup{breaklinks=true,
     colorlinks=true,
     linkcolor=blue,
-    filecolor=black,
+    filecolor=black,      
     urlcolor=black,
     citecolor=black
 } % Cleaned up the hyperlinks a little so the PDF stopped putting red boxes around internal links
-
+ 
 \urlstyle{same}
 
 %put other packages you might need and custom declarations here
 \usepackage{appendix} % Needed for numbering and listing tables and figures from the appendices
 \usepackage{soul}
 \usepackage{multirow} % For collapsing/merging rows in tables
-\usepackage{longtable} % If your list is longer than one page, use the "longtable" package. Just \usepackage{longtable} and then replace the word "tabular" with "longtable".
+\usepackage{longtable} % If your list is longer than one page, use the "longtable" package. Just \usepackage{longtable} and then replace the word "tabular" with "longtable".  
 \usepackage{graphicx}
-\usepackage[table,xcdraw]{xcolor}
+\usepackage[table,xcdraw]{xcolor} 
 
-\usepackage{tikz} % For drawing figures
+\usepackage{tikz} % For drawing figures 
 \usetikzlibrary{matrix,shapes,arrows,arrows.meta,shapes.geometric} % useful for flowcharts
 \usepackage{listings} % package that can create "code-like" text
 
@@ -78,7 +78,7 @@
 % Double-space all textual material and all preliminary pages. Footnotes, figure and table captions, and long quotations may be single-spaced. The bibliography may be single-spaced, with one extra space between each citation."
 
 \usepackage{setspace}
-\doublespacing
+\doublespacing 
 
 
 % 1.1.2 Typeface size and style
@@ -230,7 +230,7 @@ requirements for the \@degreeword\ of\\
 \begin{singlespace}
 
 \hspace{2in}
-\large \copyright \hspace{1ex}
+\large \copyright \hspace{1ex} 
 \begin{minipage}[t]{3in}
 Copyright by \\
 \MakeUppercase{\@author}\\
@@ -263,7 +263,7 @@ Approved by\\[2em]
 \@university,\ \@faculty, \@degreeyear
 \par
 % Major Professor: \@majorprofname, \@majorproftitle
-\mbox{Major Professor:  \@majorprofname,
+\mbox{Major Professor:  \@majorprofname, 
     \@majorproftitle }
 \par
 \vspace{\baselineskip}
@@ -272,7 +272,7 @@ Approved by\\[2em]
 \par
 % Major Professor: \@majorprofname, \@majorproftitle
 \mbox{Major Professor: \begin{minipage}[t]{4in}
-    \vspace*{-0.79\baselineskip} \begin{singlespace} \@majorprofname,
+    \vspace*{-0.79\baselineskip} \begin{singlespace} \@majorprofname, 
     \@majorproftitle \end{singlespace} \end{minipage}}
 \par
 \vspace{\baselineskip}
@@ -375,7 +375,7 @@ subsubsection\fi}{3}{\z@}{-3.25ex plus -1ex minus -.2ex}{1.5ex plus .2ex}{\noind
 %        CV -- HG 2018: I did not use this, have included my CV within the dissertation.tex file instead
 % here are some commands which might be useful for including a cv at the end of the thesis.  They are modified from those in resume.sty by Miklos Csuros csuros@cs.yale.edu
 
-\newcommand{\categoryfont}{\sl}
+\newcommand{\categoryfont}{\sl} 
 \newcounter{ccounter}
 \newlength{\categorytitlespace}
 \newlength{\categorytitlewidth}
@@ -391,7 +391,7 @@ subsubsection\fi}{3}{\z@}{-3.25ex plus -1ex minus -.2ex}{1.5ex plus .2ex}{\noind
         \parbox[t][0pt]{0pt}{\hspace{-\categorytitlespace}\parbox[t]{\categorytitlewidth}{\categoryfont\raggedright#1}\vspace{-1in}}}
    \par
    \begin{list}{}{%
-      \setlength{\leftmargin}{\categorytitlespace}
+      \setlength{\leftmargin}{\categorytitlespace}      
       \setlength{\parsep}{0in}
       }}
    {\end{list}}
@@ -423,7 +423,7 @@ subsubsection\fi}{3}{\z@}{-3.25ex plus -1ex minus -.2ex}{1.5ex plus .2ex}{\noind
         \iffirstitem
                 \item[\arabic{ccounter}.] \leavevmode\makecategorytitle
         \else
-                \item[\arabic{ccounter}.]
+                \item[\arabic{ccounter}.] 
         \fi
         \firstitemfalse
                 }
